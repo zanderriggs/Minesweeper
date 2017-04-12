@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Minesweeper
+namespace Minesweeper.Classes
 {
-    class Program
+    class User
     {
-        static void Main(string[] args)
-        {
-        }
+        //Methods for manipulating user input
     }
 }

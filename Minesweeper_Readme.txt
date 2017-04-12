@@ -1,7 +1,5 @@
-Minesweeper txt file thingy
+Minesweeper Project - Documentation
 
-<<<<<<< HEAD
-Shane changes mad 11/11
-=======
-Best thingy ever, thanks Zander! :)
->>>>>>> ed50dddcf6c96ca4f71cc784dd50bccbcfdbaf60
+(basically we're going to copy-paste the stuff from the google doc to this txt file)
+
+Place classes in separate files within the project folder
