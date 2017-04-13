@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Minesweeper.Classes
 {
-    class Spaces 
-    
+    class Spaces
     {
         //private values here
         private int x = 0;
         private int y = 0;
+        private string appearance = "";
 
         //Default constructor
         public Spaces()
@@ -20,10 +20,11 @@ namespace Minesweeper.Classes
         }
 
         //constructor
-        public Spaces(int x, int y)
+        public Spaces(int x, int y, string appearance = "")
         {
             this.x = x;
             this.y = y;
+            this.appearance = "";
         }
 
         //get sets
@@ -37,14 +38,10 @@ namespace Minesweeper.Classes
             get { return y; }
             set { value = y; }
         }
-
-        public int PlantMines() // Method
-            {
-                Random r = new Random();
-                for (int i = 0; i < 25; i++)
-                Console.WriteLine(r.Next(1, 50).ToString());
-
-            }
+        public string Appearance
+        {
+            get { return appearance; }
+        }
     
     }
 }

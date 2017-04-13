@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Minesweeper.Classes
 {
-    class Mine
+
+    class Mine : Spaces
     {
+        static Random rnd = new Random();
+
         //private values here
         private int x = 0;
         private int y = 0;
+        private string appearance = "";
 
         //Default constructor
         public Mine()
@@ -19,25 +23,46 @@ namespace Minesweeper.Classes
         }
 
         //Mine constructor
-        public Mine(int x, int y)
+        public Mine(int x, int y, string appearance = "")
         {
             this.x = x;
             this.y = y;
+            this.appearance = "";
         }
 
-        //LayMines() - to randomly place mines in field
+        //PlantMines() - to randomly place mines in field
+        public class PlantMines
+        {
+            Mine mine = new Mine(rnd.Next(1, 26), rnd.Next(1, 26));
 
-        //get sets
-        public int X
-        {
-            get { return x; }
-            set { value = x; }
         }
-        public int Y
-        {
-            get { return y; }
-            set { value = y; }
-        }
+        //public int PlantMines()
+        //{
+        //    for (int i = 0; i < 25; i++)
+        //        Console.WriteLine(r.Next(1, 50).ToString());
+
+        //}
+
+        ////get sets
+        //public int X
+        //{
+        //    get { return x; }
+        //    set { value = x; }
+        //}
+
+        //public int Y
+        //{
+        //    get { return y; }
+        //    set { value = y; }
+        //}
+
+        //public string Appearance
+        //{
+        //    get { return appearance; }
+        //}
     }
-
 }
+
+
+    
+
