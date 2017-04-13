@@ -28,27 +28,43 @@ namespace Minesweeper
             //create Field. Field = array of arrays based on the sidelength paramater set by the user
             Array[,] Field = new Array[sideLength + 2, sideLength + 2];
 
+            //Code to populate the Field - copied from what we worked out on the board (from memory)
+            for (int i = 0; i < Field[i, 0].Length; i++)
+            {
+                for (int j = 0; j < Field[i, j].Length; j++)
+                {
+
+                }
+            }
 
 
-            //Run game within do/while loop
+            //Run game within do/while loop? -z
             //do
             //{
-            //    //do
-            //    //{
-            //    //    //run game
+            //    do
+            //    {
+            //        run game
 
-            //    //    //check for mines
-            //    //    //if (Field[1, 2] is Mine)
-            //    //    //{
+            //        check for mines
+            //        if (Field[1, 2] is Mine)
+            //            {
 
-            //    //    //}
-
-
-            //    //}
-            //    //while (winGame = false);
+            //            }
+            //    }
+            //    while (endGame = false);
+            //    if (endGameWin = true)
+            //    {
+            //        Console.Write("You win!");
+            //    }
+            //    if (endGameLose = true)
+            //    {
+            //        Console.Write("You lose :(");
+            //    }
+            //    Console.WriteLine("Woudld you like to play again (y/n)?");
+            //    continue = Console.ReadLine();
             //}
             //while (continue.ToLower() = "y");
-            
+
 
 
         }
