@@ -24,4 +24,6 @@ namespace Minesweeper
             sideLength = int.Parse(Console.ReadLine());
         }
     }
+    ////create array of arrays based on the sidelength paramater set by the user
+    //Array[,] gameBoard = new Array[sideLength + 2, sideLength + 2];
 }
