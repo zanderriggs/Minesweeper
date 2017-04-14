@@ -27,19 +27,16 @@ namespace Minesweeper.Classes
             this.appearance = "#";
         }
 
-        public void Turn()//reveals if a space is a mine or not
-        {
-            //if statements for counting bombs surrounding the space or triggering endgame
-        }
-        public void Flag() //turn space into '!'
+        public void Flag(ref string value) //turn space into '!'
         {
             //turns object.Appearance to '!'
-
+            value = "!";
         }
 
-        public void Question() //turn space appearance into '?'
+        public void Question(ref string value) //turn space appearance into '?'
         {
-            //turns object.Appearance to '!'
+            //turns object.Appearance to '?'
+            value = "?";
         }
 
         //get sets

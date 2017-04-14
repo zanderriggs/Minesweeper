@@ -45,10 +45,7 @@ namespace Minesweeper.Classes
 
         //}
 
-        public void Boom()
-        {
-            Console.WriteLine("You lose :(");
-        }
+        
 
         //get sets
         //public int X

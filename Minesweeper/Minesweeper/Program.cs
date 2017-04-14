@@ -31,15 +31,17 @@ namespace Minesweeper
             //create Field. Field = array of arrays based on the sidelength paramater set by the user
             Spaces[,] Field = new Spaces[sideLength + 2, sideLength + 2];
 
-            //Code to populate the Field - copied from what we worked out on the board (from memory)
-            for (int i = 0; i <= (sideLength-1); i++)
+           //Fills the constructed 'Field' object
+            //for each open position in the array of arrays, create and instert a Spaces object
+            for (int i = 0; i <= (sideLength - 1); i++)
             {
-                for (int j = 0; j <= (sideLength-1); j++)
+                for (int j = 0; j <= (sideLength - 1); j++)
                 {
                     Spaces space = new Spaces(i, j, "#");
                     Field[i, j] = space;
                 }
             }
+                   
 
             for ( int i = 0; i < sideLength; i++)
             {
@@ -115,19 +117,29 @@ namespace Minesweeper
 
 
         }
+        //Methods for manipulating classes by user input
+        public void Turn()//reveals if a space is a mine or not
+        {
+            ////if statements for counting mines surrounding the space or triggering endgame
+            //if (Spaces != Mine)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
+        //}
+        
 
-        //Methods for manipulating user input
+        public void Boom()
+        {
+            //Reveal all mines
 
-        //public bool Turn(string x, string y) //check if space is a mine or not. trigger endGame if 'mine'
-        //{
-        //    if (Field[x, y] is Mine)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}        
+            //Print lose text
+            Console.WriteLine("You lose :(");
+        }
+
+
     }
 }

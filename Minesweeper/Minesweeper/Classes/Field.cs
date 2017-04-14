@@ -29,13 +29,6 @@ namespace Minesweeper.Classes
             return numberOfMines; //returns the number of mines to be generated
         }
 
-        //public Spaces PopulateField()
-        //{
-        //    //Fills the constructed Field object
-        //    //for each open position in the array of arrays, create and instert a Spaces object
-
-        //}
-
         //public Mine PlantMines()
         //{
         //    //takes 'numberOfMines' from NumberOfMines method to generate that many mines and place them in Field object
