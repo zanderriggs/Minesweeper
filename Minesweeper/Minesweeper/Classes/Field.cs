@@ -30,7 +30,7 @@ namespace Minesweeper.Classes
         //    for (int x = 0; x < gameBoard.Length; x++)
         //    {
         //        int y;
-        //        for (y =0; y < gameBoard.Length; y++)
+        //        for (y = 0; y < gameBoard.Length; y++)
         //        {
         //            Spaces Space = new Spaces(x, y);
         //            gameBoard[x, y] = Space;
@@ -40,11 +40,15 @@ namespace Minesweeper.Classes
 
         //}
 
-        
+
         //GenerateField()
 
         //LayMines() - maybe include this code within the Gererate Field method
 
-        //get sets
+        public int SideLength
+        {
+            get { return sideLength; }
+            set { sideLength = value; }
+        }
     }
 }

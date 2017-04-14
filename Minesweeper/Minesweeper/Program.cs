@@ -106,5 +106,29 @@ namespace Minesweeper
 
 
         }
+
+        //Methods for manipulating user input
+
+        //public bool Turn(string x, string y) //check if space is a mine or not. trigger endGame if 'mine'
+        //{
+        //    if (Field[x, y] is Mine)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+        
+        //public  Flag() //turn space into '!'
+        //{
+
+        //}
+
+        //public Question() //turn space appearance into '?'
+        //{
+
+        //}
     }
 }

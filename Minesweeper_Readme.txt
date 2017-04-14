@@ -5,8 +5,13 @@ Minesweeper Project - Documentation
 Place classes in separate files within the project folder
 
 
-Symbols for the project field
+Symbol ideas for the project field
 # = default field space
-@ = user flagged bomb
+! = user flagged bomb
 ? = unsure user flag bomb
-X/! = bomb
+X = bomb
+
+
+Basic contructional layout of the main block of code:
+
+

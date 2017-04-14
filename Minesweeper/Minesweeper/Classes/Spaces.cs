@@ -31,16 +31,17 @@ namespace Minesweeper.Classes
         public int X
         {
             get { return x; }
-            set { value = x; }
+            set { x = value; }
         }
         public int Y
         {
             get { return y; }
-            set { value = y; }
+            set { y = value; }
         }
         public string Appearance
         {
             get { return appearance; }
+            set { appearance = value; }
         }
     
     }
