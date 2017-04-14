@@ -11,7 +11,7 @@ namespace Minesweeper.Classes
         //private values here
         private int x = 0;
         private int y = 0;
-        private string appearance = "";
+        private string appearance = "#";
 
         //Default constructor
         public Spaces()
@@ -20,11 +20,11 @@ namespace Minesweeper.Classes
         }
 
         //constructor
-        public Spaces(int x, int y, string appearance = "")
+        public Spaces(int x, int y, string appearance = "#")
         {
             this.x = x;
             this.y = y;
-            this.appearance = "";
+            this.appearance = "#";
         }
 
         //get sets
@@ -44,12 +44,13 @@ namespace Minesweeper.Classes
             set { appearance = value; }
         }
 
-        public int RandomNumber(int rand1, int rand2)
-        {
-            Random randNumber = new Random();
-            int rand1 = Random.Next(0, sideLength - 1);
-            int rand2 = Random.Next(0, sideLength - 1);
-        }
+        //public int RandomNumber(int rand1, int rand2)
+        //{
+        //    Random randNumber = new Random();
+        //    int rand1 = Random.Next(0, sideLength - 1);
+        //    int rand2 = Random.Next(0, sideLength - 1);
+        //    return 
+        //}
     }
 }
 
