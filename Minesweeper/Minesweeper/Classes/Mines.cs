@@ -33,6 +33,12 @@ namespace Minesweeper.Classes
         //PlantMines() - to randomly place mines in field
         public class PlantMines
         {
+            //public int RandomNumber(int rand1, int rand2)
+            //{
+            //    Random randNumber = new Random();
+            //    int rand1 = Random.Next(0, sideLength - 1);
+            //    int rand2 = Random.Next(0, sideLength - 1);
+            //}
             Mine mine = new Mine(rnd.Next(1, 26), rnd.Next(1, 26));
 
         }
