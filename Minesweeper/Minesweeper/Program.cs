@@ -128,16 +128,6 @@ namespace Minesweeper
         //    {
         //        return false;
         //    }
-        //}
-        
-        //public  Flag() //turn space into '!'
-        //{
-
-        //}
-
-        //public Question() //turn space appearance into '?'
-        //{
-
-        //}
+        //}        
     }
 }

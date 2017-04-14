@@ -30,24 +30,25 @@ namespace Minesweeper.Classes
             this.appearance = "";
         }
 
-        //PlantMines() - to randomly place mines in field
-        public class PlantMines
-        {
-            //public int RandomNumber(int rand1, int rand2)
-            //{
-            //    Random randNumber = new Random();
-            //    int rand1 = Random.Next(0, sideLength - 1);
-            //    int rand2 = Random.Next(0, sideLength - 1);
-            //}
-            Mine mine = new Mine(rnd.Next(1, 26), rnd.Next(1, 26));
-
-        }
-        //public int PlantMines()
+        //Not sure we need this Method because we can create Mines from the Field class
+        //public void PlantMines()
         //{
-        //    for (int i = 0; i < 25; i++)
+        //    int r = rnd.Next(0,)
+        //    for (int i = 0; i < Field.length; i++)
         //        Console.WriteLine(r.Next(1, 50).ToString());
+        //    {
+        //        Random randNumber = new Random();
+        //        int rand1 = Random.Next(0, sideLength - 1);
+        //        int rand2 = Random.Next(0, sideLength - 1);
+        //    }
+        //    Mine mine = new Mine(rnd.Next(1, 26), rnd.Next(1, 26));
 
         //}
+
+        public void Boom()
+        {
+            Console.WriteLine("You lose :(");
+        }
 
         //get sets
         //public int X

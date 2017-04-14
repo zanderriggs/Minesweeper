@@ -23,27 +23,30 @@ namespace Minesweeper.Classes
             this.sideLength = sideLength;
         }
 
+        public double NumberOfMines(int sideLength) //calculates # of mines for field
+        {
+            double numberOfMines = Math.Round((sideLength * sideLength) * .15);
+            return numberOfMines; //returns the number of mines to be generated
+        }
+
         //public Spaces PopulateField()
         //{
-        //    //Filling The Field
+        //    //Fills the constructed Field object
         //    //for each open position in the array of arrays, create and instert a Spaces object
-        //    for (int x = 0; x < gameBoard.Length; x++)
-        //    {
-        //        int y;
-        //        for (y = 0; y < gameBoard.Length; y++)
-        //        {
-        //            Spaces Space = new Spaces(x, y);
-        //            gameBoard[x, y] = Space;
-        //        }
-
-        //    }
 
         //}
 
+        //public Mine PlantMines()
+        //{
+        //    //takes 'numberOfMines' from NumberOfMines method to generate that many mines and place them in Field object
 
-        //GenerateField()
+        //}
 
-        //LayMines() - maybe include this code within the Gererate Field method
+        public void Draw() //method to write contents of Field array to console
+        {
+            //code to console.write contents of 'Field'
+
+        }
 
         public int SideLength
         {

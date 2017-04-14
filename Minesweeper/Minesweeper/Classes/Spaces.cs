@@ -27,6 +27,21 @@ namespace Minesweeper.Classes
             this.appearance = "#";
         }
 
+        public void Turn()//reveals if a space is a mine or not
+        {
+            //if statements for counting bombs surrounding the space or triggering endgame
+        }
+        public void Flag() //turn space into '!'
+        {
+            //turns object.Appearance to '!'
+
+        }
+
+        public void Question() //turn space appearance into '?'
+        {
+            //turns object.Appearance to '!'
+        }
+
         //get sets
         public int X
         {
@@ -43,14 +58,6 @@ namespace Minesweeper.Classes
             get { return appearance; }
             set { appearance = value; }
         }
-
-        //public int RandomNumber(int rand1, int rand2)
-        //{
-        //    Random randNumber = new Random();
-        //    int rand1 = Random.Next(0, sideLength - 1);
-        //    int rand2 = Random.Next(0, sideLength - 1);
-        //    return 
-        //}
     }
 }
 
