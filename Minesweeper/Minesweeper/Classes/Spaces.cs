@@ -42,6 +42,13 @@ namespace Minesweeper.Classes
         {
             get { return appearance; }
         }
-    
+
+        public int RandomNumber(int rand1, int rand2)
+        {
+            Random randNumber = new Random();
+            int rand1 = Random.Next(0, sideLength - 1);
+            int rand2 = Random.Next(0, sideLength - 1);
+        }
     }
 }
+
