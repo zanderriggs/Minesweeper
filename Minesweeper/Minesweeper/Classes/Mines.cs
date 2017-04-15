@@ -16,43 +16,33 @@ namespace Minesweeper.Classes
         private int y = 0;
         private string appearance = "";
 
-        //Default constructor
-        public Mine()
-        {
-
-        }
-
         //Mine constructor
-        public Mine(int x, int y, string appearance)
+        public Mine(int y, int x, string appearance)
         {
             this.x = x;
             this.y = y;
             this.appearance = appearance;
         }
 
-        //Not sure we need this Method because we can create Mines from the Field class
-        //public void PlantMines()
-
-        
 
         //get sets
-        //public int X
-        //{
-        //    get { return x; }
-        //    set { x = value; }
-        //}
+        new public int X
+        {
+            get { return x; }
+            set { x = value; }
+        }
 
-        //public int Y
-        //{
-        //    get { return y; }
-        //    set { y = value; }
-        //}
+        new public int Y
+        {
+            get { return y; }
+            set { y = value; }
+        }
 
-        //public string Appearance
-        //{
-        //    get { return appearance; }
-        //    set { appearance = value; }
-        //}
+        new public string Appearance
+        {
+            get { return appearance; }
+            set { appearance = value; }
+        }
     }
 }
 
