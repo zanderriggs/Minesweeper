@@ -9,14 +9,11 @@ namespace Minesweeper
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
             string answer;
             string userName;
             int sideLength;
-            string userBool;
             string userChoice;
             string userSpace;
             string userCoords;
