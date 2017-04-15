@@ -19,6 +19,7 @@ namespace Minesweeper
             string userBool;
             string userChoice;
             string userSpace;
+            string userCoords;
 
             Console.WriteLine("Hello there, you think you are brave enough to navigate the minefield?");
             Console.Write("Enter your name so we know who is trespassing here... ");
@@ -36,10 +37,11 @@ namespace Minesweeper
 
                 Field board = new Field(sideLength);
 
-                board.Draw();
-
                 do
                 {
+
+                    board.Draw();
+
                     Console.WriteLine("You have  options:");
                     Console.WriteLine("  To expose a tile, enter E");
                     Console.WriteLine("  To flag a mine, enter F");
@@ -49,9 +51,11 @@ namespace Minesweeper
 
                     userChoice = Console.ReadLine().ToLower();
 
+                    Console.WriteLine("Select coordinates.");
+                    userCoords = Console.ReadLine();
+
 
                 }
-
                 while (userChoice != "q");
 
                 if (userChoice == "q")
@@ -61,8 +65,26 @@ namespace Minesweeper
                 }
                 else
                 {
-                    Console.Write("Please enter two coordinates (i.e. ZB) to select a space: ");
-                    userSpace = Console.ReadLine().ToUpper();
+
+                    switch (userChoice)
+                    {
+                        case "E":
+                            Console.WriteLine();
+                            break;
+                        case "F":
+
+                            break;
+                        case "S":
+
+                            break;
+                        case "Q":
+
+                            break;
+                        default:
+                            Console.WriteLine("That is not a user option.");
+                            break;
+
+                    }
                 }
 
                 Console.WriteLine("Would you like to continue (y/n)?");
