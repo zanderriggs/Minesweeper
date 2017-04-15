@@ -27,21 +27,20 @@ namespace Minesweeper.Classes
             //generates array
         }
 
-        //public Spaces PopulateField(ref int sideLength)
-        //{
-        //    //Fills the constructed 'Field' object
-        //    //for each open position in the array of arrays, create and instert a Spaces object
-        //    for (int i = 0; i <= (sideLength - 1); i++)
-        //    {
-        //        for (int j = 0; j <= (sideLength - 1); j++)
-        //        {
-        //            Spaces space = new Spaces(i, j, "#");
-        //            Field[i, j] = space;
-        //            return space;
-        //        }
-        //    }
-            
-        //}
+        public Spaces PopulateField(ref int sideLength)
+        {
+            //Fills the constructed 'Field' object
+            //for each open position in the array of arrays, create and instert a Spaces object
+            for (int i = 0; i <= (sideLength - 1); i++)
+            {
+                for (int j = 0; j <= (sideLength - 1); j++)
+                {
+                    Spaces space = new Spaces(i, j, "#");
+                    Field[i, j] = space;
+                    return space;
+                }
+            }
+        }
 
         //public double NumberOfMines(int sideLength) //calculates # of mines for field
         //{
