@@ -39,8 +39,6 @@ namespace Minesweeper
 
                 do
                 {
-
-                    Console.Clear();
                     board.Draw();
 
                     Console.WriteLine("You have  options:");
@@ -59,30 +57,31 @@ namespace Minesweeper
                     }
                     else
                     {
-                        Console.Write("Please enter two coordinates separated by a space (i.e. Z B) to select a tile: ");
+                        Console.Write("Please enter two coordinates separated by a space (i.e. A Z) to select a tile: ");
                         userSpace = Console.ReadLine().ToUpper();
 
                         string [] userCoords = userSpace.Split(' ');
 
-                        int xCoord = int.Parse(typeof(xValues), userCoords[1]);
+                        int yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userCoords[0]));
+                        int xCoord = (int)((xValues) Enum.Parse(typeof(xValues), userCoords[1]));
+                        
                         switch (userChoice)
                         {
                             case "E":
                                 Console.WriteLine();
+                                board.Turn(yCoord, xCoord);
                                 break;
                             case "F":
-
+                                Console.WriteLine();
+                                board.Flag(yCoord, xCoord);
                                 break;
                             case "S":
-
-                                break;
-                            case "Q":
-
+                                Console.WriteLine();
+                                board.Question(yCoord, xCoord);
                                 break;
                             default:
                                 Console.WriteLine("That is not a user option.");
                                 break;
-
                         }
                     }
 

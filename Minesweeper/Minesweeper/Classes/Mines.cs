@@ -23,11 +23,11 @@ namespace Minesweeper.Classes
         }
 
         //Mine constructor
-        public Mine(int x, int y, string appearance = "")
+        public Mine(int x, int y, string appearance)
         {
             this.x = x;
             this.y = y;
-            this.appearance = "";
+            this.appearance = appearance;
         }
 
         //Not sure we need this Method because we can create Mines from the Field class

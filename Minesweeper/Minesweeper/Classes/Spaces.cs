@@ -12,30 +12,18 @@ namespace Minesweeper.Classes
         //private values here
         private int x = 0;
         private int y = 0;
-        private string appearance = "#";
+        private string appearance = "";
 
         public Spaces()
         {
 
         }
 
-        public Spaces(int x, int y, string appearance = "#")
+        public Spaces(int x, int y, string appearance)
         {
             this.x = x;
             this.y = y;
-            this.appearance = "#";
-        }
-
-        public void Flag(ref string value) //turn space into '!'
-        {
-            //turns object.Appearance to '!'
-            value = "!";
-        }
-
-        public void Question(ref string value) //turn space appearance into '?'
-        {
-            //turns object.Appearance to '?'
-            value = "?";
+            this.appearance = appearance;
         }
 
         //Get Sets

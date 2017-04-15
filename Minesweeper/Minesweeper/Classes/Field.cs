@@ -16,14 +16,10 @@ namespace Minesweeper.Classes
         private int sideLength = 0;
         private Spaces[,] board;
 
-        public Field()
-        {
-
-        }
-
         public Field(int sideLength)
         {
             this.sideLength = sideLength;
+            board = new Spaces[this.sideLength + 2,this.sideLength + 2];
             PopulateField();
             PlantMines(board);
         }
@@ -92,7 +88,7 @@ namespace Minesweeper.Classes
                 //Random randNumber = new Random();
                 int rand1 = rnd.Next(0, sideLength - 1);
                 int rand2 = rnd.Next(0, sideLength - 1);
-                Mine Mine = new Mine(rand1, rand2);
+                Mine Mine = new Mine(rand1, rand2, "#");
                 board[rand1, rand2] = Mine;
             }
 
@@ -104,17 +100,17 @@ namespace Minesweeper.Classes
             //creates border on Field object
             Console.Clear();
 
-            for (int i = 0; i < (sideLength + 1); i++)
+            for (int i = 0; i <= sideLength + 1; i++)
             {
-                for (int j = 0; j < (sideLength + 1); j++)
+                for (int j = 0; j <= sideLength + 1; j++)
                 {
-                    Console.Write($"{(board[i, j]).Appearance} ");
+                    Console.Write(board[i, j].Appearance + "   ");
                 }
                 Console.Write(Environment.NewLine + Environment.NewLine);
             }
         }
 
-        public bool Turn(Spaces[,] board, int x, int y)//reveals if a space is a mine or not
+        public bool Turn(int y, int x)//reveals if a space is a mine or not
         {
             //if statements for counting mines surrounding the space or triggering endgame
             if (board[x, y] is Spaces)
@@ -127,7 +123,18 @@ namespace Minesweeper.Classes
                 return true;
             }
         }
-        public int Sweep(Spaces[,] board, int x, int y)
+        public void Flag(int y, int x) //turn space into '!'
+        {
+            //turns object.Appearance to '!'
+            board[y, x].Appearance = "!";
+        }
+
+        public void Question(int x, int y) //turn space appearance into '?'
+        {
+            //turns object.Appearance to '?'
+            board[y, x].Appearance = "?";
+        }
+        public int Sweep(int y, int x)
         {
             int mineCount = 0;
             //Check above
