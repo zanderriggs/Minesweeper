@@ -26,15 +26,13 @@ namespace Minesweeper
 
             sideLength = int.Parse(Console.ReadLine());
 
+            Spaces [,] board = new Spaces[(sideLength + 2), (sideLength + 2)];
 
-            //create Field. Field = array of arrays based on the sidelength paramater set by the user
-            Field field = new Field(sideLength);
+            Field field = new Field();
 
-            Spaces[,] Field = new Spaces[sideLength + 2, sideLength + 2];
-                   
-            
+            field.PopulateField(board);
 
-            Console.Write(Field[1, 2].Appearance);
+            Console.Write(board[1, 2].Appearance);
             Console.ReadLine();
 
 
