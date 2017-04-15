@@ -16,16 +16,13 @@ namespace Minesweeper.Classes
 
         //private values
         private int sideLength = 0;
-
         private Spaces[,] board;
 
-        //default constructor
         public Field()
         {
 
         }
 
-        //Field constructor(with user input for field size)
         public Field(int sideLength)
         {
             this.sideLength = sideLength;
@@ -124,6 +121,41 @@ namespace Minesweeper.Classes
                 }
                 Console.Write(Environment.NewLine + Environment.NewLine);
             }
+        }
+        //Methods for manipulating classes by user input
+        public bool Turn(Spaces[,] board, int x, int y)//reveals if a space is a mine or not
+        {
+            //if statements for counting mines surrounding the space or triggering endgame
+            if (board[x, y] is Spaces)
+            {
+                return false;
+                //board[x, y].Sweep();
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public int Sweep(Spaces[,] board, int x, int y)
+        {
+            int mineCount = 0;
+            //Check above
+            for (int i = x - 1; i < 3; i++)
+            {
+                if (board[x, y] is Mine)
+                {
+                    mineCount++;
+                }
+            }
+            //Check below
+            for (int i = x - 1; i < 3; i++)
+            {
+                if (board[x, y] is Mine)
+                {
+                    mineCount++;
+                }
+            }
+            return mineCount;
         }
     }
 }
