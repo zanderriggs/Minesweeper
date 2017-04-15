@@ -21,7 +21,6 @@ namespace Minesweeper
             int sideLength;
             string userChoice;
             string userSpace;
-            string userCoords;
             string answer;
 
             Console.WriteLine("Hello there, you think you are brave enough to navigate the minefield?");
@@ -65,9 +64,9 @@ namespace Minesweeper
                         Console.Write("Please enter two coordinates separated by a space (i.e. Z B) to select a tile: ");
                         userSpace = Console.ReadLine().ToUpper();
 
-                        //userCoords = userSpace.Split(' ');
+                        string [] userCoords = userSpace.Split(' ');
 
-
+                        int xCoord = int.Parse(typeof(xValues), userCoords[1]);
                         switch (userChoice)
                         {
                             case "E":
@@ -93,9 +92,6 @@ namespace Minesweeper
                     finalAnswer = Console.ReadLine();
                 }
                 while (userChoice != "q");
-
-                    Console.WriteLine("Select coordinates.");
-                    userCoords = Console.ReadLine();
 
                 Console.WriteLine("Would you like to continue (y/n)?");
                 answer = Console.ReadLine();
