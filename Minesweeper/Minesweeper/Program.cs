@@ -24,10 +24,11 @@ namespace Minesweeper
 
             userName = Console.ReadLine();
 
+
             //do
             //{
 
-                Console.WriteLine($"Hi, {userName}, what size minefield can you handle?");
+            Console.WriteLine($"Hi, {userName}, what size minefield can you handle?");
                 Console.Write("Enter a number between 3 and 13 to indicate the size of your desired minefield: ");
 
                 sideLength = int.Parse(Console.ReadLine());
@@ -48,7 +49,6 @@ namespace Minesweeper
                     userChoice = Console.ReadLine().ToLower();
 
 
-
                 }
 
                 while (userChoice != "q");
@@ -58,6 +58,7 @@ namespace Minesweeper
                     Console.Clear();
                     Console.Write("I see that you cannot handle the minefield. At least you still have your life!");
                 }
+
 
                 else
                 {

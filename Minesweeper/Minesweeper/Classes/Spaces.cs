@@ -14,13 +14,11 @@ namespace Minesweeper.Classes
         private int y = 0;
         private string appearance = "#";
 
-        //Default constructor
         public Spaces()
         {
 
         }
 
-        //constructor
         public Spaces(int x, int y, string appearance = "#")
         {
             this.x = x;
@@ -40,7 +38,7 @@ namespace Minesweeper.Classes
             value = "?";
         }
 
-        //get sets
+        //Get Sets
         public int X
         {
             get { return x; }

@@ -27,7 +27,7 @@ namespace Minesweeper.Classes
         {
             this.sideLength = sideLength;
             PopulateField();
-            PlantMines();
+            PlantMines(board);
         }
 
         public int SideLength
@@ -85,27 +85,17 @@ namespace Minesweeper.Classes
             
         }
 
-        private void PlantMines()
+        private void PlantMines(Spaces[,] board)
         {
             double numberOfMines = Math.Round((sideLength * sideLength) * .15);
             //int r = rnd.Next(0, (sideLength-1));
             for (int i = 1; i <= numberOfMines; i++)
-            //Console.WriteLine(r.Next(1, 50).ToString());
             {
                 //Random randNumber = new Random();
                 int rand1 = rnd.Next(0, sideLength - 1);
                 int rand2 = rnd.Next(0, sideLength - 1);
-
-                if ((board[rand1, rand2]).Appearance != "!")
-                {
-                    Mine mine = new Mine(rand1, rand2, "!");
-                }
-
-                else
-                {
-                    i = (i - 1);
-                }
-
+                Mine Mine = new Mine(rand1, rand2);
+                board[rand1, rand2] = Mine;
             }
 
         }
@@ -125,7 +115,7 @@ namespace Minesweeper.Classes
                 Console.Write(Environment.NewLine + Environment.NewLine);
             }
         }
-        //Methods for manipulating classes by user input
+
         public bool Turn(Spaces[,] board, int x, int y)//reveals if a space is a mine or not
         {
             //if statements for counting mines surrounding the space or triggering endgame
@@ -145,7 +135,7 @@ namespace Minesweeper.Classes
             //Check above
             for (int i = x - 1; i < 3; i++)
             {
-                if (board[x, y] is Mine)
+                if (board[i, y] is Mine)
                 {
                     mineCount++;
                 }
@@ -153,10 +143,19 @@ namespace Minesweeper.Classes
             //Check below
             for (int i = x - 1; i < 3; i++)
             {
-                if (board[x, y] is Mine)
+                if (board[i, y] is Mine)
                 {
                     mineCount++;
                 }
+            }
+            //Check left
+            if (board[x - 1, y] is Mine)
+            {
+                mineCount++;
+            }
+            else if (board[x + 1, y] is Mine)
+            {
+                mineCount++;
             }
             return mineCount;
         }
