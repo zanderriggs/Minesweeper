@@ -26,13 +26,9 @@ namespace Minesweeper
             Console.Write("Enter a number between 3 and 13 to indicate the size of your desired minefield: ");
 
             sideLength = int.Parse(Console.ReadLine());
-
-            Spaces [,] board = new Spaces[(sideLength + 2), (sideLength + 2)];
-
+            
             Field field = new Field(sideLength);
-
-            Console.Write(board[1, 2].Appearance);
-
+            
             Console.ReadLine();
 
 
