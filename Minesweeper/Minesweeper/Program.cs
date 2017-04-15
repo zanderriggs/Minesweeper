@@ -21,7 +21,8 @@ namespace Minesweeper
             int sideLength;
             string userChoice;
             string userSpace;
-            
+            string userCoords;
+            string answer;
 
             Console.WriteLine("Hello there, you think you are brave enough to navigate the minefield?");
             Console.Write("Enter your name so we know who is trespassing here... ");
@@ -41,6 +42,7 @@ namespace Minesweeper
 
                 do
                 {
+
                     Console.Clear();
                     board.Draw();
 
@@ -64,12 +66,40 @@ namespace Minesweeper
                         userSpace = Console.ReadLine().ToUpper();
 
                         //userCoords = userSpace.Split(' ');
+
+
+                        switch (userChoice)
+                        {
+                            case "E":
+                                Console.WriteLine();
+                                break;
+                            case "F":
+
+                                break;
+                            case "S":
+
+                                break;
+                            case "Q":
+
+                                break;
+                            default:
+                                Console.WriteLine("That is not a user option.");
+                                break;
+
+                        }
                     }
 
                     Console.WriteLine("Would you like to play again (y/n)?");
                     finalAnswer = Console.ReadLine();
                 }
                 while (userChoice != "q");
+
+                    Console.WriteLine("Select coordinates.");
+                    userCoords = Console.ReadLine();
+
+                Console.WriteLine("Would you like to continue (y/n)?");
+                answer = Console.ReadLine();
+
             }
             while (finalAnswer.ToLower() == "y");
 
