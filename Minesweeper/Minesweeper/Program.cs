@@ -28,11 +28,12 @@ namespace Minesweeper
 
             Spaces [,] board = new Spaces[(sideLength + 2), (sideLength + 2)];
 
-            Field field = new Field();
+            Field field = new Field(sideLength);
 
             field.PopulateField(board);
 
             Console.Write(board[1, 2].Appearance);
+
             Console.ReadLine();
 
 
