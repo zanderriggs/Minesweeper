@@ -103,13 +103,5 @@ namespace Minesweeper
 
             Console.Write("Goodbye, you can brave the minefield again another day.");
         }
-            
-        public void Boom()
-        {
-            //Reveal all mines
-
-            //Print lose text
-            Console.WriteLine("You lose :(");
-        }
     }
 }

@@ -157,5 +157,23 @@ namespace Minesweeper.Classes
             }
             return mineCount;
         }
+        public void Boom()
+        {
+            //Reveal all mines
+            for (int i = 0; i < board.Length; i++)
+            {
+                for (int j = 0; j < board.Length; j++)
+                {
+                    if (board[i,j] is Mine)
+                    {
+                        board[i, j].Appearance = "X";
+                    }
+                }
+            }
+            Console.Clear();
+            Draw();
+            //Print lose text
+            Console.WriteLine("You lose :(");
+        }
     }
 }
