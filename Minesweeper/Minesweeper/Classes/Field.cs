@@ -29,7 +29,6 @@ namespace Minesweeper.Classes
             //create 2d array
         }
 
-<<<<<<< HEAD
         public Spaces PopulateField(ref int sideLength)
         {
             //Fills the constructed 'Field' object
@@ -103,16 +102,14 @@ namespace Minesweeper.Classes
         //        Console.Write(Environment.NewLine + Environment.NewLine);
         //    }
         //}
-
-=======
->>>>>>> ed59da5df91e7f1d56b9cd7de3e43dfa2bed5b62
+        
         public int SideLength
         {
             get { return sideLength; }
             set { sideLength = value; }
         }
 
-        public Spaces PopulateField(Array board)
+        public Spaces PopulateField(Spaces[,] board)
         {
             //Fills the constructed 'Field' object
             //for each open position in the array of arrays, create and instert a Spaces object
@@ -166,7 +163,7 @@ namespace Minesweeper.Classes
             }
         }
 
-        public void PlantMines(int NumberOfMines, Array field)
+        public void PlantMines(Spaces[,] board)
         {
             double numberOfMines = Math.Round((sideLength * sideLength) * .15);
             //int r = rnd.Next(0, (sideLength-1));
@@ -177,7 +174,7 @@ namespace Minesweeper.Classes
                 int rand1 = rnd.Next(0, sideLength - 1);
                 int rand2 = rnd.Next(0, sideLength - 1);
 
-                if (board[rand1, rand2] != Mine)
+                if (board[rand1, rand2] != Spaces as Mine)
                 {
                     Mine mine = new Mine(rand1, rand2);
                 }
@@ -191,7 +188,7 @@ namespace Minesweeper.Classes
 
         }
 
-        public void Draw(Array field) //method to write contents of Field array to console
+        public void Draw(Spaces[,] board) //method to write contents of Field array to console
         {
             //code to console.write contents of 'Field'
             //creates border on Field object
