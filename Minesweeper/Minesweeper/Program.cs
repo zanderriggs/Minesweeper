@@ -7,16 +7,20 @@ using System.Threading.Tasks;
 
 namespace Minesweeper
 {
+    enum xValues { Z, Y, X, W, V, U, T, S, R, Q, P, O, N }
+    enum yValues { A, B, C, D, E, F, G, H, I, J, K, L, M }
+
     class Program
     {
         static void Main(string[] args)
         {
-            string answer;
+            string finalAnswer;
             string userName;
             int sideLength;
             string userChoice;
             string userSpace;
             string userCoords;
+            string answer;
 
             Console.WriteLine("Hello there, you think you are brave enough to navigate the minefield?");
             Console.Write("Enter your name so we know who is trespassing here... ");
@@ -37,6 +41,7 @@ namespace Minesweeper
                 do
                 {
 
+                    Console.Clear();
                     board.Draw();
 
                     Console.WriteLine("You have  options:");
@@ -48,46 +53,55 @@ namespace Minesweeper
 
                     userChoice = Console.ReadLine().ToLower();
 
-                    Console.WriteLine("Select coordinates.");
-                    userCoords = Console.ReadLine();
+                    if (userChoice == "q")
+                    {
+                        Console.Clear();
+                        Console.Write("I see that you cannot handle the minefield. At least you still have your life!");
+                    }
+                    else
+                    {
+                        Console.Write("Please enter two coordinates separated by a space (i.e. Z B) to select a tile: ");
+                        userSpace = Console.ReadLine().ToUpper();
+
+                        //userCoords = userSpace.Split(' ');
 
 
+                        switch (userChoice)
+                        {
+                            case "E":
+                                Console.WriteLine();
+                                break;
+                            case "F":
+
+                                break;
+                            case "S":
+
+                                break;
+                            case "Q":
+
+                                break;
+                            default:
+                                Console.WriteLine("That is not a user option.");
+                                break;
+
+                        }
+                    }
+
+                    Console.WriteLine("Would you like to play again (y/n)?");
+                    finalAnswer = Console.ReadLine();
                 }
                 while (userChoice != "q");
 
-                if (userChoice == "q")
-                {
-                    Console.Clear();
-                    Console.Write("I see that you cannot handle the minefield. At least you still have your life!");
-                }
-                else
-                {
-
-                    switch (userChoice)
-                    {
-                        case "E":
-                            Console.WriteLine();
-                            break;
-                        case "F":
-
-                            break;
-                        case "S":
-
-                            break;
-                        case "Q":
-
-                            break;
-                        default:
-                            Console.WriteLine("That is not a user option.");
-                            break;
-
-                    }
-                }
+                    Console.WriteLine("Select coordinates.");
+                    userCoords = Console.ReadLine();
 
                 Console.WriteLine("Would you like to continue (y/n)?");
                 answer = Console.ReadLine();
+
             }
-            while (answer.ToLower() == "y");
+            while (finalAnswer.ToLower() == "y");
+
+            Console.Write("Goodbye, you can brave the minefield again another day.");
         }
             
         public void Boom()

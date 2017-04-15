@@ -9,8 +9,6 @@ namespace Minesweeper.Classes
 {
     class Field
     {
-        enum xValues { Z, Y, X, W, V, U, T, S, R, Q, P, O, N }
-        enum yValues { A, B, C, D, E, F, G, H, I, J, K, L, M }
 
         static Random rnd = new Random();
 
