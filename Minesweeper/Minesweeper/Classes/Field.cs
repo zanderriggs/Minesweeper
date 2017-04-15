@@ -26,6 +26,8 @@ namespace Minesweeper.Classes
         public Field(int sideLength)
         {
             this.sideLength = sideLength;
+            PopulateField();
+            PlantMines();
         }
 
         public int SideLength
@@ -108,10 +110,11 @@ namespace Minesweeper.Classes
 
         }
 
-        public void Draw(Spaces[,] board) //method to write contents of Field array to console
+        public void Draw() //method to write contents of Field array to console
         {
             //code to console.write contents of 'Field'
             //creates border on Field object
+            Console.Clear();
 
             for (int i = 0; i < (sideLength + 1); i++)
             {
