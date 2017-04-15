@@ -9,8 +9,7 @@ namespace Minesweeper
 {
     class Program
     {
-        enum xValues { Z, Y, X, W, V, U, T, S, R, Q, P, O, N}
-        enum yValues { A, B, C, D, E, F, G, H, I, J, K, L, M}
+        
 
         static void Main(string[] args)
         {
@@ -29,58 +28,11 @@ namespace Minesweeper
 
 
             //create Field. Field = array of arrays based on the sidelength paramater set by the user
+            Field field = new Field(sideLength);
+
             Spaces[,] Field = new Spaces[sideLength + 2, sideLength + 2];
-
-           //Fills the constructed 'Field' object
-            //for each open position in the array of arrays, create and instert a Spaces object
-            for (int i = 0; i <= (sideLength - 1); i++)
-            {
-                for (int j = 0; j <= (sideLength - 1); j++)
-                {
-                    Spaces space = new Spaces(i, j, "#");
-                    Field[i, j] = space;
-                }
-            }
                    
-
-            for ( int i = 0; i < sideLength; i++)
-            {
-                Spaces underscore = new Spaces(sideLength, i, "_");
-                Field[sideLength, i] = underscore;
-            }
-
-            for (int i = 0; i < sideLength; i++)
-            {
-                Field[i, sideLength] = new Spaces(sideLength, i, "|");
-            }
-
-            for (int i = 0; i < sideLength; i++)
-            {
-                Field[(sideLength+1), i] = new Spaces((sideLength+1), i, $"{(yValues)i}");
-            }
-
-            for (int i = 0; i < sideLength; i++)
-            {
-                Field[i, (sideLength+1)] = new Spaces((sideLength+1), i, $"{(xValues)i}");
-            }
-
-            for (int i = sideLength; i <= (sideLength + 1); i++)
-            {
-                for (int j = sideLength; j <= (sideLength + 1); j++)
-                {
-                    Spaces space = new Spaces(i, j, " ");
-                    Field[i, j] = space;
-                }
-            }
-
-            for (int i = 0; i < (sideLength + 1); i++)
-            {
-                for (int j = 0; j < (sideLength + 1); j++)
-                {
-                    Console.Write($"{(Field[i, j].Appearance)} ");
-                }
-                Console.Write(Environment.NewLine + Environment.NewLine);
-            }
+            
 
             Console.Write(Field[1, 2].Appearance);
             Console.ReadLine();
@@ -129,8 +81,8 @@ namespace Minesweeper
             //{
             //    return false;
             //}
-        //}
-        
+        }
+
 
         public void Boom()
         {
