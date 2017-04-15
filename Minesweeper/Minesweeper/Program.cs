@@ -9,10 +9,11 @@ namespace Minesweeper
 {
     class Program
     {
-        
+
 
         static void Main(string[] args)
         {
+            string answer;
             string userName;
             int sideLength;
             string userBool;
@@ -25,10 +26,10 @@ namespace Minesweeper
             userName = Console.ReadLine();
 
 
-            //do
-            //{
+            do
+            {
 
-            Console.WriteLine($"Hi, {userName}, what size minefield can you handle?");
+                Console.WriteLine($"Hi, {userName}, what size minefield can you handle?");
                 Console.Write("Enter a number between 3 and 13 to indicate the size of your desired minefield: ");
 
                 sideLength = int.Parse(Console.ReadLine());
@@ -58,45 +59,18 @@ namespace Minesweeper
                     Console.Clear();
                     Console.Write("I see that you cannot handle the minefield. At least you still have your life!");
                 }
-
-
                 else
                 {
                     Console.Write("Please enter two coordinates (i.e. ZB) to select a space: ");
                     userSpace = Console.ReadLine().ToUpper();
-                    
                 }
+
+                Console.WriteLine("Would you like to continue (y/n)?");
+                answer = Console.ReadLine();
             }
-
-
-            //Run game within do/while loop? -z
-            //do
-            //{
-            //    do
-            //    {
-            //        run game
-
-            //        check for mines
-            //        if (Field[1, 2] is Mine)
-            //            {
-
-            //            }
-            //    }
-            //    while (endGame = false);
-            //    if (endGameWin = true)
-            //    {
-            //        Console.Write("You win!");
-            //    }
-            //    if (endGameLose = true)
-            //    {
-            //        Console.Write("You lose :(");
-            //    }
-            //    Console.WriteLine("Woudld you like to play again (y/n)?");
-            //    continue = Console.ReadLine();
-            //}
-            //while (continue.ToLower() = "y");
-
+            while (answer.ToLower() == "y");
         }
+            
         public void Boom()
         {
             //Reveal all mines
