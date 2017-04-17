@@ -19,7 +19,7 @@ namespace Minesweeper.Classes
 
         }
 
-        public Spaces(int x, int y, string appearance)
+        public Spaces(int y, int x, string appearance)
         {
             this.x = x;
             this.y = y;

@@ -81,7 +81,7 @@ namespace Minesweeper.Classes
 
         private void PlantMines(Spaces[,] board)
         {
-            double numberOfMines = Math.Round((sideLength * sideLength) * .15);
+            double numberOfMines = Math.Round((sideLength * sideLength) * .3);
             //int r = rnd.Next(0, (sideLength-1));
             for (int i = 1; i <= numberOfMines; i++)
             {
@@ -113,7 +113,7 @@ namespace Minesweeper.Classes
         public bool Turn(int y, int x)//reveals if a space is a mine or not
         {
             //if statements for counting mines surrounding the space or triggering endgame
-            if (board[x, y] is Spaces)
+            if (board[y, x] is Spaces)
             {
                 return false;
                 //board[x, y].Sweep();
@@ -129,7 +129,7 @@ namespace Minesweeper.Classes
             board[y, x].Appearance = "!";
         }
 
-        public void Question(int x, int y) //turn space appearance into '?'
+        public void Question(int y, int x) //turn space appearance into '?'
         {
             //turns object.Appearance to '?'
             board[y, x].Appearance = "?";
@@ -171,7 +171,7 @@ namespace Minesweeper.Classes
             {
                 for (int j = 0; j < board.Length; j++)
                 {
-                    if (board[i,j] is Mine)
+                    if (board[i, j] is Mine)
                     {
                         board[i, j].Appearance = "X";
                     }
