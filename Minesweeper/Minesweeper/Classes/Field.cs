@@ -20,8 +20,8 @@ namespace Minesweeper.Classes
         {
             this.sideLength = sideLength;
             board = new Spaces[this.sideLength + 2,this.sideLength + 2];
-            PopulateField();
             PlantMines(board);
+            PopulateField(board);
         }
 
         public int SideLength
@@ -30,7 +30,7 @@ namespace Minesweeper.Classes
             set { sideLength = value; }
         }
 
-        private void PopulateField()
+        private void PopulateField(Spaces [,] board)
         {
             //Fills the constructed 'Field' object
             //for each open position in the array of arrays, create and instert a Spaces object
@@ -81,7 +81,7 @@ namespace Minesweeper.Classes
 
         private void PlantMines(Spaces[,] board)
         {
-            double numberOfMines = Math.Round((sideLength * sideLength) * .3);
+            double numberOfMines = Math.Round((sideLength * sideLength) * 0.15);
             //int r = rnd.Next(0, (sideLength-1));
             for (int i = 1; i <= numberOfMines; i++)
             {

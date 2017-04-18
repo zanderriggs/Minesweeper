@@ -41,7 +41,7 @@ namespace Minesweeper.Classes
             get { return appearance; }
             set { appearance = value; }
         }
-        public bool IsMine
+        new public bool IsMine
         {
             get { return isMine; }
         }

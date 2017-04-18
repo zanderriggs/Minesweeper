@@ -16,6 +16,7 @@ namespace Minesweeper
         {
             string answer;
             bool quit = false;
+            bool winCheck = false;
 
             string userName;
             int sideLength;
@@ -89,9 +90,10 @@ namespace Minesweeper
                             break;
                     }
 
+                    winCheck = board.Win();
                     
                 }
-                while (board.Win() == false || quit == true);
+                while (winCheck == false || quit == false);
 
                 Console.WriteLine("Would you like to continue (y/n)?");
                 answer = Console.ReadLine();
