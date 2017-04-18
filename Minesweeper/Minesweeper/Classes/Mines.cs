@@ -14,6 +14,7 @@ namespace Minesweeper.Classes
         //private values here
         private int x = 0;
         private int y = 0;
+        private bool isMine = true;
         private string appearance = "";
 
         //Mine constructor
@@ -39,6 +40,10 @@ namespace Minesweeper.Classes
         {
             get { return appearance; }
             set { appearance = value; }
+        }
+        public bool IsMine
+        {
+            get { return isMine; }
         }
     }
 }

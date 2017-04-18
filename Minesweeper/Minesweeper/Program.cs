@@ -14,16 +14,17 @@ namespace Minesweeper
     {
         static void Main(string[] args)
         {
-            string finalAnswer;
+            string answer;
+            bool quit = false;
+
             string userName;
             int sideLength;
             string userChoice;
-            string userSpace;
-            string answer;
-
+            string[] userSpace;
+            int yCoord = 0;
+            int xCoord = 0;
             Console.WriteLine("Hello there, you think you are brave enough to navigate the minefield?");
             Console.Write("Enter your name so we know who is trespassing here... ");
-
             userName = Console.ReadLine();
 
 
@@ -41,62 +42,66 @@ namespace Minesweeper
                 {
                     board.Draw();
 
-                    Console.WriteLine("You have  options:");
-                    Console.WriteLine("  To expose a tile, enter E");
-                    Console.WriteLine("  To flag a mine, enter F");
-                    Console.WriteLine("  To mark a suspected mine, enter S");
-                    Console.WriteLine("  If you want to quit, enter Q");
-                    Console.Write($"  What is your choice, {userName}? ");
+                    Console.WriteLine("Your options:");
+                    Console.WriteLine("     Expose(E)  Flag(F)  Mark(M)  Quit(Q)");
+                    Console.Write("     Enter your selection: ");
 
                     userChoice = Console.ReadLine().ToLower();
 
-                    if (userChoice == "q")
+                    //Console.Write("Please enter two coordinates separated by a space (i.e. A Z) to select a tile: ");
+                    //userSpace = (Console.ReadLine().ToUpper()).Split(' ');
+                    //yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[0]));
+                    //xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[1]));
+                    
+                    switch(userChoice)
                     {
-                        Console.Clear();
-                        Console.Write("I see that you cannot handle the minefield. At least you still have your life!");
+                        case "e":
+                            Console.Write("Please enter two coordinates separated by a space (i.e. A Z) to select a tile: ");
+                            userSpace = (Console.ReadLine().ToUpper()).Split(' ');
+                            yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[0]));
+                            xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[1]));
+                            board.Turn(yCoord, xCoord);
+                            break;
+
+                        case "f":
+                            Console.Write("Please enter two coordinates separated by a space (i.e. A Z) to select a tile: ");
+                            userSpace = (Console.ReadLine().ToUpper()).Split(' ');
+                            yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[0]));
+                            xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[1]));
+                            board.Flag(yCoord, xCoord);
+                            break;
+
+                        case "m":
+                            Console.Write("Please enter two coordinates separated by a space (i.e. A Z) to select a tile: ");
+                            userSpace = (Console.ReadLine().ToUpper()).Split(' ');
+                            yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[0]));
+                            xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[1]));
+                            board.Question(yCoord, xCoord);
+                            break;
+
+                        case "q":
+                            quit = true;
+                            board.End();
+                            break;
+
+                        default:
+                            Console.WriteLine("That is not a user option.");
+                            break;
                     }
-                    else
-                    {
-                        Console.Write("Please enter two coordinates separated by a space (i.e. A Z) to select a tile: ");
-                        userSpace = Console.ReadLine().ToUpper();
 
-                        string [] userCoords = userSpace.Split(' ');
-
-                        int yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userCoords[0]));
-                        int xCoord = (int)((xValues) Enum.Parse(typeof(xValues), userCoords[1]));
-                        
-                        switch (userChoice)
-                        {
-                            case "E":
-                                Console.WriteLine();
-                                board.Turn(yCoord, xCoord);
-                                break;
-                            case "F":
-                                Console.WriteLine();
-                                board.Flag(yCoord, xCoord);
-                                break;
-                            case "S":
-                                Console.WriteLine();
-                                board.Question(yCoord, xCoord);
-                                break;
-                            default:
-                                Console.WriteLine("That is not a user option.");
-                                break;
-                        }
-                    }
-
-                    Console.WriteLine("Would you like to play again (y/n)?");
-                    finalAnswer = Console.ReadLine();
+                    
                 }
-                while (userChoice != "q");
+                while (board.Win() == false || quit == true);
 
                 Console.WriteLine("Would you like to continue (y/n)?");
                 answer = Console.ReadLine();
 
             }
-            while (finalAnswer.ToLower() == "y");
+            while (answer.ToLower() == "y");
 
             Console.Write("Goodbye, you can brave the minefield again another day.");
         }
+        
     }
+    
 }

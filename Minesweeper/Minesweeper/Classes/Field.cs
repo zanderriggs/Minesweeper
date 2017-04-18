@@ -113,10 +113,11 @@ namespace Minesweeper.Classes
         public bool Turn(int y, int x)//reveals if a space is a mine or not
         {
             //if statements for counting mines surrounding the space or triggering endgame
-            if (board[y, x] is Spaces)
+            if (board[y, x].IsMine == false)
             {
+                //int sweepResults = board.Sweep(y, x);
+               // board[y, x].Appearance = sweepResults.ToString();
                 return false;
-                //board[x, y].Sweep();
             }
             else
             {
@@ -181,6 +182,33 @@ namespace Minesweeper.Classes
             Draw();
             //Print lose text
             Console.WriteLine("You lose :(");
+        }
+        public bool Win()
+        {
+            //Win Check
+            for (int i = 0; i < board.Length; i++)
+            {
+                for (int j = 0; j < board.Length; j++)
+                {
+                    if (board[i, j] is Mine && board[i, j].Appearance == "!")
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            return false;
+
+        }
+        public void End()
+        {
+            //Default Game Over screen
+            Console.Clear();
+            Console.WriteLine("I see that you cannot handle the minefield. At least you still have your life!");
+            Console.WriteLine("Game Over");
         }
     }
 }
