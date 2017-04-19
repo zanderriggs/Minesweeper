@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Minesweeper
 {
-    enum xValues { Z, Y, X, W, V, U, T, S, R, Q, P, O, N }
-    enum yValues { A, B, C, D, E, F, G, H, I, J, K, L, M }
-
+    enum xValues { A, B, C, D, E, F, G, H, I, J, K, L, M }
+    enum yValues { Z, Y, X, W, V, U, T, S, R, Q, P, O, N }
+    
     class Program
     {
         static void Main(string[] args)
@@ -59,24 +59,24 @@ namespace Minesweeper
                         case "e":
                             Console.Write("Please enter two coordinates separated by a space (i.e. A Z) to select a tile: ");
                             userSpace = (Console.ReadLine().ToUpper()).Split(' ');
-                            yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[0]));
-                            xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[1]));
+                            yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[1]));
+                            xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[0]));
                             board.Turn(yCoord, xCoord);
                             break;
 
                         case "f":
                             Console.Write("Please enter two coordinates separated by a space (i.e. A Z) to select a tile: ");
                             userSpace = (Console.ReadLine().ToUpper()).Split(' ');
-                            yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[0]));
-                            xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[1]));
+                            yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[1]));
+                            xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[0]));
                             board.Flag(yCoord, xCoord);
                             break;
 
                         case "m":
                             Console.Write("Please enter two coordinates separated by a space (i.e. A Z) to select a tile: ");
                             userSpace = (Console.ReadLine().ToUpper()).Split(' ');
-                            yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[0]));
-                            xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[1]));
+                            yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[1]));
+                            xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[0]));
                             board.Question(yCoord, xCoord);
                             break;
 

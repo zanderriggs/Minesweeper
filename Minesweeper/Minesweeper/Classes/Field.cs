@@ -108,13 +108,13 @@ namespace Minesweeper.Classes
             }
         }
 
-        public bool Turn(int y, int x)//reveals if a space is a mine or not
+        public bool Turn(int x, int y)//reveals if a space is a mine or not
         {
             //if statements for counting mines surrounding the space or triggering endgame
-            if (board[y, x].IsMine == false)
+            if (board[x, y].IsMine == false)
             {
-                int sweepResults = Sweep(y, x);
-                board[y, x].Appearance = sweepResults.ToString();
+                int sweepResults = Sweep(x, y);
+                board[x, y].Appearance = sweepResults.ToString();
                 return false;
             }
             else
@@ -123,60 +123,67 @@ namespace Minesweeper.Classes
             }
         }
 
-        public void Flag(int y, int x) //turn object.Appearance into '!'
+        public void Flag(int x, int y) //turn object.Appearance into '!'
         {
-            if (board[y, x].Appearance == "#")
+            if (board[x, y].Appearance == "#")
             {
-                board[y, x].Appearance = "!";
+                board[x, y].Appearance = "!";
             }
-            else if (board[y, x].Appearance == "!")
+            else if (board[x, y].Appearance == "!")
             {
-                board[y, x].Appearance = "#";
+                board[x, y].Appearance = "#";
             }
         }
 
-        public void Question(int y, int x) //turn object.appearance into '?'
+        public void Question(int x, int y) //turn object.appearance into '?'
         {
-            if (board[y, x].Appearance == "#")
+            if (board[x, y].Appearance == "#")
             {
-                board[y, x].Appearance = "?";
+                board[x, y].Appearance = "?";
             }
-            else if (board[y, x].Appearance == "?")
+            else if (board[x, y].Appearance == "?")
             {
-                board[y, x].Appearance = "#";
+                board[x, y].Appearance = "#";
             }
         }
 
-        public int Sweep(int y, int x)
+        public int Sweep(int x, int y)
         {
             int mineCount = 0;
             //Check above
-            for (int i = x - 1; i < 3; i++)
+            int result = 0;
+            if (int.TryParse(board[x, y].Appearance, out result))
             {
-                if (board[i, y] is Mine)
+                return result;
+            }
+            else
+            {
+                for (int i = x - 1; i < 3; i++)
+                {
+                    if (board[i, y] is Mine)
+                    {
+                        mineCount++;
+                    }
+                }
+                //Check below
+                for (int i = x - 1; i < 3; i++)
+                {
+                    if (board[i, y] is Mine)
+                    {
+                        mineCount++;
+                    }
+                }
+                //Check left
+                if (board[x - 1, y] is Mine)
                 {
                     mineCount++;
                 }
-            }
-            //Check below
-            for (int i = x - 1; i < 3; i++)
-            {
-                if (board[i, y] is Mine)
+                else if (board[x + 1, y] is Mine)
                 {
                     mineCount++;
                 }
+                return mineCount;
             }
-            //Check left
-            if (board[x - 1, y] is Mine)
-            {
-                mineCount++;
-            }
-            else if (board[x + 1, y] is Mine)
-            {
-                mineCount++;
-            }
-            return mineCount;
-
         }
 
     

@@ -10,7 +10,6 @@ namespace Minesweeper.Classes
 
     class Mine : Spaces
     {
-
         //private values here
         private int x = 0;
         private int y = 0;
@@ -18,7 +17,7 @@ namespace Minesweeper.Classes
         private string appearance = "";
 
         //Mine constructor
-        public Mine(int y, int x, string appearance)
+        public Mine(int x, int y, string appearance)
         {
             this.x = x;
             this.y = y;
