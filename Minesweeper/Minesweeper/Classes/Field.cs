@@ -160,7 +160,11 @@ namespace Minesweeper.Classes
             {
                 for (int i = x - 1; i < 3; i++)
                 {
-                    if (board[i, y] is Mine)
+                    if (i < 0)
+                    {
+                        break;
+                    }
+                    else if (board[i, y].IsMine == true)
                     {
                         mineCount++;
                     }
@@ -168,17 +172,27 @@ namespace Minesweeper.Classes
                 //Check below
                 for (int i = x - 1; i < 3; i++)
                 {
-                    if (board[i, y] is Mine)
+                    if (i < 0)
+                    {
+                        break;
+                    }
+
+                    else if (board[i, y].IsMine == true)
                     {
                         mineCount++;
                     }
                 }
                 //Check left
-                if (board[x - 1, y] is Mine)
+                if ((board[x, y].X - 1) < 0 )
                 {
-                    mineCount++;
+                    mineCount = mineCount + 0;
                 }
-                else if (board[x + 1, y] is Mine)
+                else if (board[x - 1, y].IsMine == true)
+                {
+                        mineCount++;
+                }
+
+                if (board[x+1, y].IsMine == true)
                 {
                     mineCount++;
                 }
@@ -194,7 +208,7 @@ namespace Minesweeper.Classes
             {
                 for (int j = 0; j < board.Length; j++)
                 {
-                    if (board[i, j] is Mine)
+                    if (board[i, j].IsMine == true)
                     {
                         board[i, j].Appearance = "X";
                     }
@@ -212,7 +226,7 @@ namespace Minesweeper.Classes
             {
                 for (int j = 0; j < board.Length; j++)
                 {
-                    if ((board[i, j] is Mine) && (board[i, j].Appearance == "!"))
+                    if ((board[i, j].IsMine == true) && (board[i, j].Appearance == "!"))
                     {
                         return true;
                     }

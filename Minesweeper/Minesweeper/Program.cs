@@ -61,7 +61,7 @@ namespace Minesweeper
                             userSpace = (Console.ReadLine().ToUpper()).Split(' ');
                             yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[1]));
                             xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[0]));
-                            board.Turn(yCoord, xCoord);
+                            board.Turn(xCoord, yCoord);
                             break;
 
                         case "f":
@@ -69,7 +69,7 @@ namespace Minesweeper
                             userSpace = (Console.ReadLine().ToUpper()).Split(' ');
                             yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[1]));
                             xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[0]));
-                            board.Flag(yCoord, xCoord);
+                            board.Flag(xCoord, yCoord);
                             break;
 
                         case "m":
@@ -77,7 +77,7 @@ namespace Minesweeper
                             userSpace = (Console.ReadLine().ToUpper()).Split(' ');
                             yCoord = (int)((yValues)Enum.Parse(typeof(yValues), userSpace[1]));
                             xCoord = (int)((xValues)Enum.Parse(typeof(xValues), userSpace[0]));
-                            board.Question(yCoord, xCoord);
+                            board.Question(xCoord, yCoord);
                             break;
 
                         case "q":
