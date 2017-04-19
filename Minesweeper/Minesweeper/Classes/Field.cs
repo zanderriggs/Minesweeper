@@ -9,7 +9,6 @@ namespace Minesweeper.Classes
 {
     class Field
     {
-
         static Random rnd = new Random();
 
         //private values
@@ -96,7 +95,6 @@ namespace Minesweeper.Classes
 
         public void Draw() //method to write contents of Field array to console
         {
-            //code to console.write contents of 'Field'
             //creates border on Field object
             Console.Clear();
 
@@ -115,8 +113,8 @@ namespace Minesweeper.Classes
             //if statements for counting mines surrounding the space or triggering endgame
             if (board[y, x].IsMine == false)
             {
-                //int sweepResults = board.Sweep(y, x);
-               // board[y, x].Appearance = sweepResults.ToString();
+                int sweepResults = Sweep(y, x);
+                board[y, x].Appearance = sweepResults.ToString();
                 return false;
             }
             else
@@ -124,17 +122,31 @@ namespace Minesweeper.Classes
                 return true;
             }
         }
-        public void Flag(int y, int x) //turn space into '!'
+
+        public void Flag(int y, int x) //turn object.Appearance into '!'
         {
-            //turns object.Appearance to '!'
-            board[y, x].Appearance = "!";
+            if (board[y, x].Appearance == "#")
+            {
+                board[y, x].Appearance = "!";
+            }
+            else if (board[y, x].Appearance == "!")
+            {
+                board[y, x].Appearance = "#";
+            }
         }
 
-        public void Question(int y, int x) //turn space appearance into '?'
+        public void Question(int y, int x) //turn object.appearance into '?'
         {
-            //turns object.Appearance to '?'
-            board[y, x].Appearance = "?";
+            if (board[y, x].Appearance == "#")
+            {
+                board[y, x].Appearance = "?";
+            }
+            else if (board[y, x].Appearance == "?")
+            {
+                board[y, x].Appearance = "#";
+            }
         }
+
         public int Sweep(int y, int x)
         {
             int mineCount = 0;
@@ -164,7 +176,10 @@ namespace Minesweeper.Classes
                 mineCount++;
             }
             return mineCount;
+
         }
+
+    
         public void Boom()
         {
             //Reveal all mines
@@ -181,16 +196,16 @@ namespace Minesweeper.Classes
             Console.Clear();
             Draw();
             //Print lose text
-            Console.WriteLine("You lose :(");
+            End();
         }
-        public bool Win()
+
+        public bool Win() //Win Check
         {
-            //Win Check
             for (int i = 0; i < board.Length; i++)
             {
                 for (int j = 0; j < board.Length; j++)
                 {
-                    if (board[i, j] is Mine && board[i, j].Appearance == "!")
+                    if ((board[i, j] is Mine) && (board[i, j].Appearance == "!"))
                     {
                         return true;
                     }
@@ -203,6 +218,7 @@ namespace Minesweeper.Classes
             return false;
 
         }
+
         public void End()
         {
             //Default Game Over screen

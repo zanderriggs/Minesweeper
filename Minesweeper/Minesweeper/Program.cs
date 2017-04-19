@@ -82,7 +82,6 @@ namespace Minesweeper
 
                         case "q":
                             quit = true;
-                            board.End();
                             break;
 
                         default:
@@ -90,12 +89,13 @@ namespace Minesweeper
                             break;
                     }
 
-                    winCheck = board.Win();
+                winCheck = board.Win();
                     
                 }
-                while (winCheck == false || quit == false);
+                while (winCheck == false && quit == false);
 
-                Console.WriteLine("Would you like to continue (y/n)?");
+                Console.WriteLine("Game Over");
+                Console.WriteLine("Continue? (y/n): ");
                 answer = Console.ReadLine();
 
             }
